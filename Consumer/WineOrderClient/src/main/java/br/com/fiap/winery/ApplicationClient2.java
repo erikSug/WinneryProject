@@ -19,6 +19,15 @@ public class ApplicationClient2{
 
         String order = wineStockService.placeOrder("Vinho Tinto",1);
         System.out.println(order);
+
+        URL url2 = new URL("http://localhost:8086/WineWarningService?wsdl");
+        QName qName2 = new QName(targetNameSpace, "WineWarningServiceImplementationService");
+        Service service2;
+        service2 = Service.create(url2,qName2);
+        WineWarningService wineWarningService = service2.getPort(WineWarningService.class);
+
+        String warn = wineWarningService.sendWarn();
+        System.out.println(warn);
     }
 
 }

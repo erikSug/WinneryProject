@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="WinerySys" />
     <orderEntry type="library" name="Maven: jakarta.xml.ws:jakarta.xml.ws-api:4.0.3" level="project" />
+    <orderEntry type="library" name="Maven: jakarta.xml.ws:jakarta.xml.ws-api:4.0.0" level="project" />
   </component>
 </module>

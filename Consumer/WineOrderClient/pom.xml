@@ -14,6 +14,7 @@
         <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.sun.xml.ws</groupId>
@@ -21,11 +22,32 @@
             <version>4.0.5</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.sun.xml.ws</groupId>
-            <artifactId>jaxws-maven-plugin</artifactId>
-            <version>4.0.5</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.sun.xml.ws</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>4.0.5</version>
+                <executions>
+                    <execution>
+                        <id>wsimport-generate</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <wsdlUrls>
+                        <wsdlUrl>http://localhost:8085/WineStockService?wsdl</wsdlUrl>
+                        <wsdlUrl>http://localhost:8086/WineWarningService?wsdl</wsdlUrl>
+                    </wsdlUrls>
+                    <packageName>br.com.fiap.winery</packageName>
+                    <keep>true</keep>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
